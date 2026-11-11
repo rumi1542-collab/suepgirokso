@@ -90,6 +90,26 @@ h2 { font-size: 18px; font-weight: 700; margin: 0 0 2px; letter-spacing: -.005em
 .vbar a { color: var(--accent); font-weight: 500; text-decoration: none; white-space: nowrap; }
 .vbar a:hover { text-decoration: underline; }
 .viewer iframe { display: block; width: 100%; height: 72vh; min-height: 420px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+
+[hidden] { display: none !important; }
+.btn.sm { min-height: 32px; padding: 4px 11px; font-size: 13px; }
+.pv { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+.pv-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding: 8px 10px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.tabs { display: flex; gap: 4px; overflow-x: auto; min-width: 0; max-width: 100%; flex: 1 1 100%; }
+.tab { font: inherit; font-size: 13px; padding: 6px 12px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.tab:hover { background: var(--surface); color: var(--fg); }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--accent); border-color: var(--line); font-weight: 600; }
+.pv-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.pv-meta { margin: 0; padding: 8px 14px; font-size: 12.5px; color: var(--muted); border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.pv-meta strong { color: var(--fg); font-weight: 600; }
+.pv-body { background: var(--bg); }
+.pv-body iframe { display: block; width: 100%; height: 74vh; min-height: 440px; border: 0; background: var(--surface); }
+.pv-nopreview { padding: 56px 16px; text-align: center; display: grid; gap: 12px; justify-items: center; }
+.pv-nopreview p { margin: 0; color: var(--muted); font-size: 14px; }
+.pv.full { position: fixed; inset: 0; z-index: 1000; border: 0; border-radius: 0; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.pv.full .pv-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.pv.full .pv-body iframe { flex: 1; height: auto; min-height: 0; }
+body.noscroll { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -104,32 +124,28 @@ h2 { font-size: 18px; font-weight: 700; margin: 0 0 2px; letter-spacing: -.005em
     <div class="sec-head">
       <div class="sec-title">
         <h2>수업 나눔 계획 및 공문</h2>
-        <p class="sec-note">공문 3건, 파일 5개</p>
+        <p class="sec-note">공문 3건, 파일 5개 · 탭을 눌러 파일을 바꿔 보세요</p>
       </div>
       <a class="btn primary" href="https://drive.google.com/drive/folders/1OssAI6WYDUojDoewVquaQMy8k_VsJj68?usp=sharing" target="_blank" rel="noopener noreferrer">드라이브 폴더 열기 ↗</a>
     </div>
-    <ul class="list">
-      <li><a class="row" href="https://drive.google.com/file/d/1PMbtB8DhFU8Qj2nJQUAEYCs9M2SuM6qv/view" data-preview="https://drive.google.com/file/d/1PMbtB8DhFU8Qj2nJQUAEYCs9M2SuM6qv/preview" target="_blank" rel="noopener noreferrer">
-        <span class="ico">PDF</span>
-        <span class="rmain"><span class="rname">2026학년도 1학기 수업 나눔 일정</span><span class="rsub">선운중학교-6418 본문 · 52 KB</span></span>
-        <span class="go">여기서 보기 ▾</span></a></li>
-      <li><a class="row" href="https://drive.google.com/file/d/1NyM32y8w97p8mGsfq1N4ytgbuD-S17T6/view" data-preview="https://drive.google.com/file/d/1NyM32y8w97p8mGsfq1N4ytgbuD-S17T6/preview" target="_blank" rel="noopener noreferrer">
-        <span class="ico">PDF</span>
-        <span class="rmain"><span class="rname">수업 나눔 교수 학습 지도안</span><span class="rsub">선운중학교-6418 첨부 · 13.5 MB</span></span>
-        <span class="go">여기서 보기 ▾</span></a></li>
-      <li><a class="row" href="https://drive.google.com/file/d/1e4-PerDfwR0eOco2rhZdOzSmcBTLv9q1/view" data-preview="https://drive.google.com/file/d/1e4-PerDfwR0eOco2rhZdOzSmcBTLv9q1/preview" target="_blank" rel="noopener noreferrer">
-        <span class="ico">PDF</span>
-        <span class="rmain"><span class="rname">선운중학교 주제연구동아리 수업기록소 수업 나눔 계획</span><span class="rsub">선운중학교-5537 본문 · 28 KB</span></span>
-        <span class="go">여기서 보기 ▾</span></a></li>
-      <li><a class="row" href="https://drive.google.com/file/d/16MivL22S__78JBON6dxCuShHnEQpYeUc/view" data-preview="https://drive.google.com/file/d/16MivL22S__78JBON6dxCuShHnEQpYeUc/preview" target="_blank" rel="noopener noreferrer">
-        <span class="ico">PDF</span>
-        <span class="rmain"><span class="rname">2026학년도 2학기 수업 공개의 날</span><span class="rsub">선운중학교-2744 본문 · 27 KB</span></span>
-        <span class="go">여기서 보기 ▾</span></a></li>
-      <li><a class="row" href="https://drive.google.com/uc?export=download&id=1Eb3lWT7MM6n6m2kAy-j0f35qt0LQTkUJ" target="_blank" rel="noopener noreferrer">
-        <span class="ico">HWP</span>
-        <span class="rmain"><span class="rname">2026학년도 선운중 2학기 수업공개 계획</span><span class="rsub">선운중학교-2744 첨부 · 한글 파일 · 145 KB</span></span>
-        <span class="go">내려받기 ↗</span></a></li>
-    </ul>
+    <div class="pv" id="pv">
+      <div class="pv-top">
+        <div class="tabs" role="tablist" aria-label="공문 파일 선택" id="pv-tabs"></div>
+        <div class="pv-tools">
+          <a class="btn sm" id="pv-new" href="#" target="_blank" rel="noopener noreferrer">새 탭에서 열기 ↗</a>
+          <button type="button" class="btn sm primary" id="pv-full">전체 화면으로 확대 ⤢</button>
+          <button type="button" class="btn sm primary" id="pv-close" hidden>닫기 ✕</button>
+        </div>
+      </div>
+      <p class="pv-meta" id="pv-meta"></p>
+      <div class="pv-body" id="pv-panel" role="tabpanel">
+        <iframe id="pv-frame" title="공문 미리보기" allowfullscreen></iframe>
+        <div class="pv-nopreview" id="pv-nopre" hidden>
+          <p>한글(HWP) 파일은 이 페이지에서 미리볼 수 없어요. 내려받아 한글에서 열어 주세요.</p>
+          <a class="btn primary" id="pv-dl" href="#" target="_blank" rel="noopener noreferrer">내려받기 ↗</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="sec" id="minutes">
@@ -206,6 +222,79 @@ h2 { font-size: 18px; font-weight: 700; margin: 0 0 2px; letter-spacing: -.005em
       if (a.getAttribute('aria-expanded') === 'true') close(a); else open(a);
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  var files = [
+    { label: '1학기 수업 나눔 일정', name: '2026학년도 1학기 수업 나눔 일정', meta: '선운중학교-6418 본문 · PDF · 52 KB',
+      preview: 'https://drive.google.com/file/d/1PMbtB8DhFU8Qj2nJQUAEYCs9M2SuM6qv/preview', open: 'https://drive.google.com/file/d/1PMbtB8DhFU8Qj2nJQUAEYCs9M2SuM6qv/view' },
+    { label: '수업 나눔 교수 학습 지도안', name: '수업 나눔 교수 학습 지도안', meta: '선운중학교-6418 첨부 · PDF · 13.5 MB (열리는 데 시간이 걸릴 수 있어요)',
+      preview: 'https://drive.google.com/file/d/1NyM32y8w97p8mGsfq1N4ytgbuD-S17T6/preview', open: 'https://drive.google.com/file/d/1NyM32y8w97p8mGsfq1N4ytgbuD-S17T6/view' },
+    { label: '수업 나눔 계획', name: '선운중학교 주제연구동아리 수업기록소 수업 나눔 계획', meta: '선운중학교-5537 본문 · PDF · 28 KB',
+      preview: 'https://drive.google.com/file/d/1e4-PerDfwR0eOco2rhZdOzSmcBTLv9q1/preview', open: 'https://drive.google.com/file/d/1e4-PerDfwR0eOco2rhZdOzSmcBTLv9q1/view' },
+    { label: '2학기 수업 공개의 날', name: '2026학년도 2학기 수업 공개의 날', meta: '선운중학교-2744 본문 · PDF · 27 KB',
+      preview: 'https://drive.google.com/file/d/16MivL22S__78JBON6dxCuShHnEQpYeUc/preview', open: 'https://drive.google.com/file/d/16MivL22S__78JBON6dxCuShHnEQpYeUc/view' },
+    { label: '2학기 수업공개 계획 (HWP)', name: '2026학년도 선운중 2학기 수업공개 계획', meta: '선운중학교-2744 첨부 · 한글 파일 · 145 KB',
+      preview: '', open: 'https://drive.google.com/uc?export=download&id=1Eb3lWT7MM6n6m2kAy-j0f35qt0LQTkUJ' }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var pv = $('pv'), tabsEl = $('pv-tabs'), frame = $('pv-frame'), meta = $('pv-meta'),
+      nopre = $('pv-nopre'), dl = $('pv-dl'), newTab = $('pv-new'), fullBtn = $('pv-full'), closeBtn = $('pv-close');
+  var tabs = [], cur = -1;
+
+  function select(i, focus) {
+    if (i === cur) return;
+    cur = i;
+    var f = files[i];
+    tabs.forEach(function (b, k) {
+      b.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      b.tabIndex = k === i ? 0 : -1;
+    });
+    meta.textContent = '';
+    var strong = document.createElement('strong'); strong.textContent = f.name;
+    meta.appendChild(strong);
+    meta.appendChild(document.createTextNode(' · ' + f.meta));
+    newTab.href = f.open;
+    newTab.textContent = f.preview ? '새 탭에서 열기 ↗' : '내려받기 ↗';
+    if (f.preview) {
+      nopre.hidden = true; frame.hidden = false; frame.src = f.preview;
+    } else {
+      frame.hidden = true; frame.src = 'about:blank'; nopre.hidden = false; dl.href = f.open;
+    }
+    $('pv-panel').setAttribute('aria-labelledby', 'tab-' + i);
+    if (focus) tabs[i].focus();
+  }
+
+  files.forEach(function (f, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'tab'; b.id = 'tab-' + i; b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'pv-panel');
+    b.textContent = f.label;
+    b.addEventListener('click', function () { select(i, false); });
+    b.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = (i + 1) % files.length;
+      else if (e.key === 'ArrowLeft') n = (i - 1 + files.length) % files.length;
+      if (n !== null) { e.preventDefault(); select(n, true); }
+    });
+    tabsEl.appendChild(b); tabs.push(b);
+  });
+
+  function setFull(on) {
+    pv.classList.toggle('full', on);
+    document.body.classList.toggle('noscroll', on);
+    fullBtn.hidden = on; closeBtn.hidden = !on;
+    (on ? closeBtn : fullBtn).focus();
+  }
+  fullBtn.addEventListener('click', function () { setFull(true); });
+  closeBtn.addEventListener('click', function () { setFull(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && pv.classList.contains('full')) setFull(false);
+  });
+
+  select(0, false);
 })();
 </script>
 </body>
