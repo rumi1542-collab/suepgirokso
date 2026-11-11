@@ -132,6 +132,7 @@ body.noscroll { overflow: hidden; }
       <div class="pv-top">
         <div class="tabs" role="tablist" aria-label="공문 파일 선택" id="pv-tabs"></div>
         <div class="pv-tools">
+          <a class="btn sm" id="pv-down" href="#" target="_blank" rel="noopener noreferrer">내려받기 ↓</a>
           <a class="btn sm" id="pv-new" href="#" target="_blank" rel="noopener noreferrer">새 탭에서 열기 ↗</a>
           <button type="button" class="btn sm primary" id="pv-full">전체 화면으로 확대 ⤢</button>
           <button type="button" class="btn sm primary" id="pv-close" hidden>닫기 ✕</button>
@@ -241,7 +242,11 @@ body.noscroll { overflow: hidden; }
   ];
   var $ = function (id) { return document.getElementById(id); };
   var pv = $('pv'), tabsEl = $('pv-tabs'), frame = $('pv-frame'), meta = $('pv-meta'),
-      nopre = $('pv-nopre'), dl = $('pv-dl'), newTab = $('pv-new'), fullBtn = $('pv-full'), closeBtn = $('pv-close');
+      nopre = $('pv-nopre'), dl = $('pv-dl'), newTab = $('pv-new'), downBtn = $('pv-down'), fullBtn = $('pv-full'), closeBtn = $('pv-close');
+  function dlUrl(f) {
+    var m = /\/d\/([^\/]+)/.exec(f.open);
+    return m ? 'https://drive.google.com/uc?export=download&id=' + m[1] : f.open;
+  }
   var tabs = [], cur = -1;
 
   function select(i, focus) {
@@ -257,7 +262,8 @@ body.noscroll { overflow: hidden; }
     meta.appendChild(strong);
     meta.appendChild(document.createTextNode(' · ' + f.meta));
     newTab.href = f.open;
-    newTab.textContent = f.preview ? '새 탭에서 열기 ↗' : '내려받기 ↗';
+    newTab.hidden = !f.preview;
+    downBtn.href = dlUrl(f);
     if (f.preview) {
       nopre.hidden = true; frame.hidden = false; frame.src = f.preview;
     } else {
