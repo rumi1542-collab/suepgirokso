@@ -224,6 +224,23 @@ body.noscroll { overflow: hidden; }
         <span class="go">여기서 보기 ▾</span></a></li>
     </ul>
   </section>
+
+  <section class="sec" id="share">
+    <div class="sec-head">
+      <div class="sec-title">
+        <h2>수업 나눔 협의록</h2>
+        <p class="sec-note">작성용 문서 · 이름을 누르면 아래에서 바로 작성할 수 있어요</p>
+      </div>
+      <a class="btn primary" href="https://drive.google.com/drive/folders/1Ukg3E4jsTo0p_KbQT89b-cEruChp4SaG?usp=sharing" target="_blank" rel="noopener noreferrer">드라이브 폴더 열기 ↗</a>
+    </div>
+    <ul class="list">
+      <li><div class="rowline"><a class="row" href="https://docs.google.com/document/d/1031DiwopO_TIlKrEWTcwqEVkqBhF6DA7X5qu49iDwEM/edit" data-preview="https://docs.google.com/document/d/1031DiwopO_TIlKrEWTcwqEVkqBhF6DA7X5qu49iDwEM/edit" data-go="여기서 작성 ▾" target="_blank" rel="noopener noreferrer">
+        <span class="ico doc">DOC</span>
+        <span class="rmain"><span class="rname">류경민</span><span class="rsub">수학 · 구글 문서</span></span>
+        <span class="go">여기서 작성 ▾</span></a>
+        <a class="btn sm dlb" href="https://docs.google.com/document/d/1031DiwopO_TIlKrEWTcwqEVkqBhF6DA7X5qu49iDwEM/export?format=pdf" target="_blank" rel="noopener noreferrer">PDF 받기 ↓</a></div></li>
+    </ul>
+  </section>
 </div>
 
 <script>
@@ -233,7 +250,7 @@ body.noscroll { overflow: hidden; }
     var li = a.closest('li'), v = li.querySelector('.viewer');
     if (v) { if (v.classList.contains('full')) unlock(); v.remove(); }
     a.setAttribute('aria-expanded', 'false');
-    var go = a.querySelector('.go'); if (go) go.textContent = '여기서 보기 ▾';
+    var go = a.querySelector('.go'); if (go) go.textContent = a.getAttribute('data-go') || '여기서 보기 ▾';
   }
   function open(a) {
     document.querySelectorAll('a.row[aria-expanded="true"]').forEach(close);
