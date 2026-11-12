@@ -108,6 +108,20 @@ body.noscroll { overflow: hidden; }
   .rowline { grid-template-columns: minmax(0, 1fr); }
   .rowline .dlb { justify-self: start; margin: 0 14px 12px; }
 }
+
+.cond { margin-top: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 16px 14px; }
+.cond h2 { margin: 0 0 2px; }
+.cond .sec-note { margin-bottom: 12px; }
+.ctable { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ctable th, .ctable td { text-align: left; padding: 8px 10px; border-top: 1px solid var(--line); vertical-align: top; }
+.ctable th { font-size: 12.5px; font-weight: 600; color: var(--muted); border-top: 0; }
+.ctable td.pt { white-space: nowrap; font-weight: 600; color: var(--accent); }
+.ctable td small { display: block; color: var(--muted); font-size: 12.5px; }
+.req { font-size: 11.5px; font-weight: 600; background: var(--accent-soft); color: var(--accent); border-radius: 4px; padding: 1px 6px; margin-left: 6px; white-space: nowrap; }
+.cond ul { margin: 12px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); }
+.cond li + li { margin-top: 3px; }
+.cond b { color: var(--fg); }
+@media (max-width: 520px) { .ctable th:nth-child(3), .ctable td:nth-child(3) { display: none; } }
 </style>
 </head>
 <body>
@@ -118,6 +132,26 @@ body.noscroll { overflow: hidden; }
     <h1>2026 선운중 주제연구동아리 [수업기록소] 수업 나눔 자료실</h1>
     <p class="lead">수업성장인증제 보고에 쓰는 자료예요. 이름을 누르면 이 페이지 안에서 바로 펼쳐 볼 수 있어요.</p>
   </header>
+
+  <section class="cond" id="cond">
+    <h2>수업성장인증제 인증 조건</h2>
+    <p class="sec-note">2026학년도 중등 운영 계획(안) 기준 · 항목 점수의 합이 <b>100점 이상</b>이면 인증</p>
+    <table class="ctable">
+      <thead><tr><th>항목</th><th>점수 (1회당)</th><th>증빙자료</th></tr></thead>
+      <tbody>
+        <tr><td>수업공개 · 교내<span class="req">필수</span></td><td class="pt">20점</td><td>교수·학습과정안 + 내부결재 기안문 또는 학교교육계획 발췌</td></tr>
+        <tr><td>수업공개 · 교외<span class="req">필수</span></td><td class="pt">30점</td><td>교수·학습과정안 + 참관 안내 공문<small>교외 공개가 어려우면 1차시 수업을 10분으로 요약한 동영상(다모다 탑재)으로 대체</small></td></tr>
+        <tr><td>수업참관<span class="req">필수</span></td><td class="pt">10점<small>최대 20점</small></td><td>수업 참관록 + 등록부 사진 또는 참관확인서</td></tr>
+        <tr><td>수업성찰(수업실천사례)<span class="req">필수</span></td><td class="pt">10점<small>최대 20점</small></td><td>수업 실천 사례 (A4 3쪽 내외)</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>필수 조건:</b> 수업공개·수업참관·수업성찰 세 항목을 모두 하고, 수업공개는 교내·교외(또는 수업 동영상) 각 1회 이상 포함</li>
+      <li><b>점수 계산 참고:</b> 참관·성찰은 최대 20점이라, 공개 각 1회와 참관·성찰 최대로 채우면 90점입니다. 100점을 넘기려면 수업공개를 더 해야 합니다. (수업공개 횟수 상한은 계획에 나오지 않음)</li>
+      <li><b>인정 범위:</b> 사전 내부결재를 받았거나 학교교육계획에 있는 수업공개만 인정. 연구회·전학공 단위 공개도 인정</li>
+      <li><b>제출:</b> 2026. 12. 4.(금) 17:00까지 결과보고서를 공문으로 제출하고, 증빙자료는 수시로 다모다에 탑재</li>
+    </ul>
+  </section>
 
   <section class="sec" id="plan">
     <div class="sec-head">
